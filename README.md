@@ -7,7 +7,7 @@ https://documenter.getpostman.com/view/4343612/UVJfhuhP
 
 
 
-#RUN 
+# RUN 
 
 git clone https://github.com/vagnux/DynamicsEntity/
 cd DynamicsEntity
