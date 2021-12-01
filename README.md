@@ -1,6 +1,6 @@
 # DynamicsEntity
 
-Create easy API where you define enity , fields types and send and get values.
+Create easy API where you create entity, fields types and send and get values.
 
 First version of documantation 
 https://documenter.getpostman.com/view/4343612/UVJfhuhP
