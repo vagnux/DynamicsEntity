@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  
+  dynamicsentity:
+    restart: always
+    hostname: dynamicsentity
+    build:
+      context: .
+      dockerfile: ./Docker/Dockerfile-DynamicsEntity
+    ports:
+      - "8080:8080"
+    networks:
+      - DynamicsEntity
+
+
+  mysql:
+    restart: always
+    hostname: mysql
+    build:
+      context: .
+      dockerfile: ./Docker/Dockerfile-mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - database:/var/lib/mysql
+      - ./Conf/database/initialization:/docker-entrypoint-initdb.d/
+    environment:
+      - MYSQL_DATABASE=DynamicsEntity
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=1aebb5e6d7bccb4e6126c6c7d7ae9f69
+      - MYSQL_ROOT_PASSWORD=1aebb5e6d7bccb4e6126c6c7d7ae9f69
+    networks:
+      - DynamicsEntity
+
+volumes:
+  database:
+
+networks:
+  DynamicsEntity:
+    driver: bridge
+    name: dynamicsentitynet

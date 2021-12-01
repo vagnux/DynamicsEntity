@@ -1,0 +1,27 @@
+FROM ubuntu:20.04
+ENV TZ=America/Sao_Paulo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# Additional tools
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends \
+	curl \
+	libssl-dev \
+	openssl \
+	nano \
+	gnupg \
+	cron \
+	bash
+	
+	
+RUN apt-get install -y --no-install-recommends maven openjdk-8-jdk
+
+RUN mkdir /spring
+
+COPY .  /spring
+
+RUN cd /spring \ 
+	&& mvn clean \
+	&& mvn install -DskipTests
+	
+ENTRYPOINT ["java","-jar","/spring/target/DynamicsEntity-1.0.jar"]
