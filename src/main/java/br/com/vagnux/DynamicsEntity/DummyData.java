@@ -38,7 +38,7 @@ public class DummyData implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		/*
 		entitiesFieldsValuesRepository.deleteAll();
 		entitiesLinesRepository.deleteAll();
 		entitiesFieldsRelationshipRepository.deleteAll();
@@ -98,7 +98,7 @@ public class DummyData implements CommandLineRunner {
 				null, null, null);
 
 		entitiesFieldsValuesRepository.saveAll(Arrays.asList(v1, v2, v3, v4, v5, v6));
-
+		*/
 	}
 
 }
