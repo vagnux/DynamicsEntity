@@ -1,0 +1,11 @@
+FROM arm32v7/maven
+
+RUN mkdir /spring
+
+COPY .  /spring
+
+RUN cd /spring \
+        && mvn clean \
+        && mvn install -DskipTests
+	
+ENTRYPOINT ["java","-jar","/spring/target/DynamicsEntity-1.0.jar"]
