@@ -38,6 +38,7 @@ public class DummyData implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		System.out.println("Running DummyData");
 		/*
 		entitiesFieldsValuesRepository.deleteAll();
 		entitiesLinesRepository.deleteAll();
